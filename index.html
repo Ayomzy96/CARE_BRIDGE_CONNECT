@@ -5,86 +5,253 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CARINGLY – Navigating Care, Together</title>
 <style>
-:root{--bg:#fbf8f3;--surface:#ffffff;--ink:#1d2b2a;--muted:#566866;--brand:#0f6b66;--brand-ink:#ffffff;--accent:#e8a33d;--line:#e6dfd3;--soft:#eaf4f2;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1918;--surface:#152624;--ink:#eef4f2;--muted:#a3b8b4;--brand:#4fc3b9;--brand-ink:#08201e;--accent:#f0b552;--line:#25403c;--soft:#12302d;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0e1918;--surface:#152624;--ink:#eef4f2;--muted:#a3b8b4;--brand:#4fc3b9;--brand-ink:#08201e;--accent:#f0b552;--line:#25403c;--soft:#12302d;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-section{padding:44px 0}
-.hero{background:var(--soft);padding:56px 0 48px;border-bottom:1px solid var(--line)}
-.brand{font-weight:700;color:var(--brand);letter-spacing:.02em;margin-bottom:18px}
-.logo{display:block;max-width:280px;width:100%;height:auto;margin-bottom:20px}
-.logo-sm{display:block;max-width:160px;width:100%;height:auto;margin:0 auto 12px}
-.hero h1{font-size:clamp(1.9rem,6vw,3rem)}
-.hero p{font-size:1.1rem;color:var(--muted);max-width:620px}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--brand)}
-.btn.p{background:var(--brand);color:var(--brand-ink)}
-.btn.s{color:var(--brand)}
-.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.1em}
-.two{display:grid;gap:16px;grid-template-columns:1fr}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
-.card h3{font-size:1.15rem;color:var(--brand)}
-.card p{margin:0;color:var(--muted)}
-.grid{display:grid;gap:16px;grid-template-columns:1fr}
-ol.obj{margin:0;padding-left:1.2em}
-ol.obj li{margin-bottom:10px}
-.cta{background:var(--brand);color:var(--brand-ink);border-radius:18px;padding:28px 22px}
-.cta h2{margin-bottom:.3em}
-.cta a{color:inherit}
-footer{padding:24px 0 32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);text-align:center}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;border-bottom:1px solid var(--line);scrollbar-width:none}
-.chips a{white-space:nowrap;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:.9rem;background:var(--surface)}
-.gcard{display:flex;flex-direction:column;gap:10px}
+:root{
+  --bg:#f7faf9;
+  --surface:#ffffff;
+  --ink:#1a2e2c;
+  --muted:#5a7270;
+  --brand:#0d6b66;
+  --brand-dark:#0a524e;
+  --brand-light:#e6f4f3;
+  --brand-ink:#ffffff;
+  --accent:#e89b2d;
+  --accent-soft:#fdf4e7;
+  --line:#e2ebe9;
+  --shadow:0 4px 20px rgba(13,107,102,.08);
+  --shadow-lg:0 12px 40px rgba(13,107,102,.12);
+  --radius:14px;
+  --radius-sm:10px;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+.topbar{background:var(--brand-dark);color:#fff;font-size:.88rem;padding:8px 0}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.topbar a{color:#fff;opacity:.9}
+.topbar a:hover{opacity:1}
+
+.header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.header .logo{height:52px;width:auto}
+.nav{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.nav a{padding:8px 14px;border-radius:999px;font-size:.92rem;font-weight:500;color:var(--ink);transition:.15s}
+.nav a:hover,.nav a.active{background:var(--brand-light);color:var(--brand)}
+.header-cta{display:flex;gap:8px;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.95rem;border:2px solid transparent;cursor:pointer;transition:.15s;font-family:inherit}
+.btn-p{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.btn-p:hover{background:var(--brand-dark);border-color:var(--brand-dark)}
+.btn-s{background:transparent;color:var(--brand);border-color:var(--brand)}
+.btn-s:hover{background:var(--brand-light)}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-accent:hover{filter:brightness(.95)}
+.btn-sm{padding:8px 16px;font-size:.88rem}
+
+.hero{background:linear-gradient(135deg,#e6f4f3 0%,#f0f9f8 50%,#fff 100%);padding:56px 0 64px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.2fr .9fr}}
+.hero-badge{display:inline-block;background:var(--accent-soft);color:#b36b00;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,4.5vw,2.85rem);line-height:1.2;margin-bottom:14px;font-weight:700;letter-spacing:-.02em}
+.hero-lead{font-size:1.12rem;color:var(--muted);max-width:520px;margin-bottom:26px}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.hero-card{background:var(--surface);border-radius:18px;padding:28px 24px;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
+.hero-card h3{font-size:1.15rem;margin-bottom:6px;color:var(--brand)}
+.hero-card p{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.hero-card .quick{display:grid;gap:10px}
+.hero-card .quick a{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--brand-light);border-radius:var(--radius-sm);font-weight:600;font-size:.92rem;color:var(--brand);transition:.15s}
+.hero-card .quick a:hover{background:var(--brand);color:#fff}
+.hero-card .q-icon{width:36px;height:36px;border-radius:10px;background:#fff;display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+
+section{padding:56px 0}
+.section-head{text-align:center;max-width:640px;margin:0 auto 36px}
+.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.1em;margin-bottom:8px}
+.section-head h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:10px}
+.section-head p{color:var(--muted)}
+
+.grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:600px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.grid-4{grid-template-columns:repeat(4,1fr)}.grid-5{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:.2s}
+.card:hover{box-shadow:var(--shadow-lg);border-color:#c5ddd9}
+.card-icon{width:48px;height:48px;border-radius:12px;background:var(--brand-light);display:grid;place-items:center;font-size:1.4rem;margin-bottom:14px;color:var(--brand)}
+.card h3{font-size:1.1rem;margin-bottom:8px;color:var(--ink)}
+.card p{color:var(--muted);font-size:.95rem;margin:0}
+.card .link{display:inline-block;margin-top:14px;color:var(--brand);font-weight:600;font-size:.92rem}
+.card .link:hover{text-decoration:underline}
+
+.about-grid{display:grid;gap:24px}
+@media(min-width:700px){.about-grid{grid-template-columns:1fr 1fr}}
+.about-box{background:var(--surface);border-radius:var(--radius);padding:28px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.about-box h3{color:var(--brand);margin-bottom:10px;font-size:1.15rem}
+.about-box p{color:var(--muted)}
+
+.obj-list{list-style:none;display:grid;gap:12px}
+.obj-list li{display:flex;gap:12px;align-items:flex-start;background:var(--surface);padding:14px 18px;border-radius:var(--radius-sm);border:1px solid var(--line)}
+.obj-list .num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:.8rem;font-weight:700;display:grid;place-items:center}
+
+.form-section{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.form-section h2{font-size:1.35rem;margin-bottom:6px}
+.form-note{color:var(--muted);font-size:.92rem;margin-bottom:20px}
+form{display:grid;gap:16px}
+label{display:grid;gap:5px;font-weight:600;font-size:.9rem;color:var(--ink)}
+input,select,textarea{font:inherit;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius-sm);background:#fafcfb;color:var(--ink);width:100%;transition:.15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px rgba(13,107,102,.12)}
+textarea{min-height:90px;resize:vertical}
+.form-row{display:grid;gap:16px}
+@media(min-width:560px){.form-row-2{grid-template-columns:1fr 1fr}}
+.alert{background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 16px;border-radius:8px;font-size:.92rem;margin-bottom:18px;color:#5c3d00}
+.out{display:none;background:var(--brand-light);border:1px dashed var(--brand);border-radius:var(--radius-sm);padding:14px;font-size:.9rem;white-space:pre-wrap;margin-top:8px}
+.out .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.note{font-size:.88rem;color:var(--muted)}
+
+.gcard{display:flex;flex-direction:column;height:100%}
 .gcard p{flex:1}
-.gbtn{align-self:flex-start;color:var(--brand);font-weight:600;text-decoration:none}
-form{display:grid;gap:14px;max-width:640px}
-label{display:grid;gap:4px;font-weight:600;font-size:.92rem}
-input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
-textarea{min-height:90px}
-button.btn{cursor:pointer;font:inherit;font-weight:600}
-.note{font-size:.9rem;color:var(--muted);margin:0 0 14px}
-.out{display:none;background:var(--soft);border:1px dashed var(--brand);border-radius:10px;padding:12px;font-size:.9rem;white-space:pre-wrap}
-.out .btns{margin-top:10px}
-.spec{display:flex;gap:14px;align-items:flex-start}
-.spec .av{flex:none;width:56px;height:56px;border-radius:50%;background:var(--soft);border:2px solid var(--brand);display:grid;place-items:center;font-size:1.6rem}
-.spec h3{margin-bottom:.15em}
-.spec .role{color:var(--accent);font-weight:700;font-size:.85rem;margin-bottom:6px}
-.alert{background:var(--soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:8px;font-size:.92rem;margin-bottom:16px}
-@media(min-width:700px){.two{grid-template-columns:1fr 1fr}.grid{grid-template-columns:repeat(3,1fr)}}
+.gcard .link{margin-top:auto;padding-top:12px}
+
+.spec{display:flex;gap:16px;align-items:flex-start}
+.spec .av{flex:none;width:56px;height:56px;border-radius:50%;background:var(--brand-light);border:2px solid var(--brand);display:grid;place-items:center;font-size:1.5rem}
+.spec h3{margin-bottom:2px;font-size:1.05rem}
+.spec .role{color:var(--accent);font-weight:700;font-size:.82rem;margin-bottom:6px}
+.spec p{color:var(--muted);font-size:.9rem;margin:0}
+
+.bank-box{background:var(--brand);color:#fff;border-radius:var(--radius);padding:22px 24px;margin-bottom:24px}
+.bank-box strong{display:block;font-size:1.05rem;margin-bottom:10px}
+.bank-box div{opacity:.95;line-height:1.7}
+
+.cta-band{background:var(--brand);color:#fff;border-radius:20px;padding:40px 28px;text-align:center}
+.cta-band h2{font-size:clamp(1.4rem,3vw,1.85rem);margin-bottom:10px}
+.cta-band p{opacity:.9;max-width:520px;margin:0 auto 20px}
+
+footer{background:var(--ink);color:#a8c0bc;padding:40px 0 28px;margin-top:20px}
+footer .logo-sm{height:48px;width:auto;margin:0 auto 16px;filter:brightness(0) invert(1);opacity:.9}
+footer .copy{text-align:center;font-size:.88rem}
+footer a{color:#c5ddd9}
+
+.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;padding:6px;color:var(--ink)}
+@media(max-width:860px){
+  .nav{display:none}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:12px 20px 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .menu-toggle{display:block}
+  .header-inner{position:relative;flex-wrap:wrap}
+  .header-cta .btn-s{display:none}
+}
 </style>
 </head>
 <body>
-<header class="hero">
+
+<div class="topbar">
   <div class="wrap">
-    <img class="logo" src="logo.jpeg" alt="CARINGLY – Navigating Care, Together">
-    <h1>No one should face hardship alone.</h1>
-    <p>We connect people in need with compassionate care, professional counselling, legal support, mediation and trusted donors.</p>
-    <div class="btns">
-      <a class="btn p" href="#request">Request support</a>
-      <a class="btn s" href="#counselling">Book counselling</a>
-      <a class="btn s" href="#donate">Give or volunteer</a>
+    <span>Care • Counselling • Legal support • Mediation</span>
+    <span>
+      <a href="https://wa.me/2348084427587" target="_blank" rel="noopener">WhatsApp: 0808 442 7587</a>
+      &nbsp;·&nbsp;
+      <a href="https://wa.me/2347017871834" target="_blank" rel="noopener">Counselling: 0701 787 1834</a>
+    </span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="#"><img class="logo" src="logo.jpeg" alt="CARINGLY – Navigating Care, Together"></a>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#request">Request care</a>
+      <a href="#counselling">Counselling</a>
+      <a href="#groups">Support groups</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-s btn-sm" href="#counselling">Book session</a>
+      <a class="btn btn-p btn-sm" href="#request">Get support</a>
     </div>
   </div>
 </header>
 
-<nav class="chips" aria-label="Sections">
-  <a href="#services">Services</a><a href="#request">Request care</a><a href="#counselling">Counselling</a><a href="#groups">Support groups</a><a href="#specialists">Specialists</a><a href="#donate">Donate</a><a href="#contact">Contact</a>
-</nav>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-badge">Navigating Care, Together</div>
+      <h1>No one should face hardship alone.</h1>
+      <p class="hero-lead">We connect people in need with compassionate care, professional counselling, legal support, mediation and trusted donors.</p>
+      <div class="hero-btns">
+        <a class="btn btn-p" href="#request">Request support</a>
+        <a class="btn btn-s" href="#counselling">Book counselling</a>
+        <a class="btn btn-s" href="#donate">Donate or volunteer</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>How can we help you today?</h3>
+      <p>Choose a quick action below — we’ll guide you from there.</p>
+      <div class="quick">
+        <a href="#request"><span class="q-icon">🤝</span> Request care or support</a>
+        <a href="#counselling"><span class="q-icon">💬</span> Book a counselling session</a>
+        <a href="#groups"><span class="q-icon">👥</span> Join a support group</a>
+        <a href="#donate"><span class="q-icon">💚</span> Give or volunteer</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section id="about">
+<section id="services">
   <div class="wrap">
-    <div class="eyebrow">Who we are</div>
-    <h2>Mission and vision</h2>
-    <div class="two">
+    <div class="section-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Ways we help</h2>
+      <p>Compassionate, professional support for individuals, families and communities.</p>
+    </div>
+    <div class="grid grid-3">
       <div class="card">
+        <div class="card-icon">🏠</div>
+        <h3>Care connection</h3>
+        <p>We assess needs and link older persons, children, families and people living with illness or disability to trusted caregivers and services.</p>
+        <a class="link" href="#request">Request care →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Counselling</h3>
+        <p>Confidential individual, family, group and crisis counselling from trained social workers.</p>
+        <a class="link" href="#counselling">Book a session →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">💚</div>
+        <h3>Donor matching</h3>
+        <p>We connect donors, philanthropists and organisations to verified needs, and report openly on how gifts are used.</p>
+        <a class="link" href="#donate">Give now →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Legal support</h3>
+        <p>Guidance and referral on legal matters relating to care, family welfare, rights of vulnerable persons, and access to justice.</p>
+        <a class="link" href="#request">Request support →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🕊️</div>
+        <h3>Mediating services</h3>
+        <p>Facilitated mediation to resolve family, community and care-related conflicts peacefully and fairly.</p>
+        <a class="link" href="#request">Request mediation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who we are</div>
+      <h2>Mission and vision</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-box">
         <h3>Our mission</h3>
         <p>To connect individuals, families and communities in need with compassionate care, professional counselling, legal support, mediation and verified donors, through ethical, evidence-based social work practice.</p>
       </div>
-      <div class="card">
+      <div class="about-box">
         <h3>Our vision</h3>
         <p>A caring society where no one faces hardship alone, and every person can access support, dignity and hope.</p>
       </div>
@@ -92,120 +259,197 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
   </div>
 </section>
 
-<section id="services" style="padding-top:0">
+<section id="objectives">
   <div class="wrap">
-    <div class="eyebrow">What we do</div>
-    <h2>Ways we help</h2>
-    <div class="grid">
-      <div class="card"><h3>Care connection</h3><p>We assess needs and link older persons, children, families and people living with illness or disability to trusted caregivers and services.</p></div>
-      <div class="card"><h3>Counselling</h3><p>Confidential individual, family, group and crisis counselling from trained social workers.</p></div>
-      <div class="card"><h3>Donor matching</h3><p>We connect donors, philanthropists and organisations to verified needs, and report openly on how gifts are used.</p></div>
-      <div class="card"><h3>Legal support</h3><p>Guidance and referral on legal matters relating to care, family welfare, rights of vulnerable persons, and access to justice.</p></div>
-      <div class="card"><h3>Mediating services</h3><p>Facilitated mediation to resolve family, community and care-related conflicts peacefully and fairly.</p></div>
+    <div class="section-head">
+      <div class="eyebrow">Our goals</div>
+      <h2>Objectives</h2>
     </div>
+    <ol class="obj-list">
+      <li><span class="num">1</span><span>Identify and assess vulnerable persons and link them to suitable care providers and services.</span></li>
+      <li><span class="num">2</span><span>Provide accessible, confidential and professional counselling for individuals, families and groups.</span></li>
+      <li><span class="num">3</span><span>Offer legal support and guidance on care, family welfare and the rights of vulnerable persons.</span></li>
+      <li><span class="num">4</span><span>Provide mediating services to resolve family, community and care-related conflicts peacefully.</span></li>
+      <li><span class="num">5</span><span>Mobilise and match donors, volunteers and partners to verified needs.</span></li>
+      <li><span class="num">6</span><span>Ensure transparency and accountability in all donations and referrals.</span></li>
+      <li><span class="num">7</span><span>Build partnerships with hospitals, faith bodies, schools, government and community groups.</span></li>
+      <li><span class="num">8</span><span>Promote awareness, advocacy and training on care, wellbeing and social justice.</span></li>
+      <li><span class="num">9</span><span>Follow up every case to measure outcomes and keep improving our services.</span></li>
+    </ol>
   </div>
 </section>
 
-<section id="objectives" style="padding-top:0">
-  <div class="wrap">
-    <div class="eyebrow">Our goals</div>
-    <h2>Objectives</h2>
-    <div class="card">
-      <ol class="obj">
-        <li>Identify and assess vulnerable persons and link them to suitable care providers and services.</li>
-        <li>Provide accessible, confidential and professional counselling for individuals, families and groups.</li>
-        <li>Offer legal support and guidance on care, family welfare and the rights of vulnerable persons.</li>
-        <li>Provide mediating services to resolve family, community and care-related conflicts peacefully.</li>
-        <li>Mobilise and match donors, volunteers and partners to verified needs.</li>
-        <li>Ensure transparency and accountability in all donations and referrals.</li>
-        <li>Build partnerships with hospitals, faith bodies, schools, government and community groups.</li>
-        <li>Promote awareness, advocacy and training on care, wellbeing and social justice.</li>
-        <li>Follow up every case to measure outcomes and keep improving our services.</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section id="request" style="padding-top:0">
-  <div class="wrap">
-    <div class="eyebrow">Care connection</div>
-    <h2>Request care or support</h2>
-    <p class="note">Tell us who needs help and what kind. We will assess the need and link you to suitable care.</p>
-    <div class="card">
+<section id="request" style="background:var(--brand-light)">
+  <div class="wrap" style="max-width:720px">
+    <div class="form-section">
+      <div class="eyebrow">Care connection</div>
+      <h2>Request care or support</h2>
+      <p class="form-note">Tell us who needs help and what kind. We will assess the need and link you to suitable care.</p>
       <form data-kind="Care request">
-        <label>Your name<input name="Name" required autocomplete="name"></label>
-        <label>Phone or email<input name="Contact" required></label>
-        <label>Who needs care?<select name="For"><option>Myself</option><option>A family member</option><option>A friend or neighbour</option><option>Someone in my community</option></select></label>
-        <label>Type of need<select name="Type of need"><option>Elderly care</option><option>Child or family welfare</option><option>Health or medical support</option><option>Disability support</option><option>Food, shelter or basic needs</option><option>Legal support</option><option>Mediating services</option><option>Other</option></select></label>
+        <div class="form-row form-row-2">
+          <label>Your name<input name="Name" required autocomplete="name"></label>
+          <label>Phone or email<input name="Contact" required></label>
+        </div>
+        <div class="form-row form-row-2">
+          <label>Who needs care?
+            <select name="For">
+              <option>Myself</option>
+              <option>A family member</option>
+              <option>A friend or neighbour</option>
+              <option>Someone in my community</option>
+            </select>
+          </label>
+          <label>Type of need
+            <select name="Type of need">
+              <option>Elderly care</option>
+              <option>Child or family welfare</option>
+              <option>Health or medical support</option>
+              <option>Disability support</option>
+              <option>Food, shelter or basic needs</option>
+              <option>Legal support</option>
+              <option>Mediating services</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
         <label>Location (town and state)<input name="Location"></label>
         <label>Tell us more<textarea name="Details"></textarea></label>
-        <button class="btn p" type="submit">Prepare my request</button>
+        <button class="btn btn-p" type="submit">Prepare my request</button>
         <div class="out" aria-live="polite"></div>
       </form>
     </div>
   </div>
 </section>
 
-<section id="counselling" style="padding-top:0">
-  <div class="wrap">
-    <div class="eyebrow">Counselling</div>
-    <h2>Request a counselling session</h2>
-    <div class="alert">Counselling is confidential. If you or someone else is in immediate danger, call 112 (Nigeria’s emergency number) or go to the nearest hospital. For under-18s, a parent or guardian’s consent may be needed.</div>
-    <div class="card">
+<section id="counselling">
+  <div class="wrap" style="max-width:720px">
+    <div class="form-section">
+      <div class="eyebrow">Counselling</div>
+      <h2>Request a counselling session</h2>
+      <div class="alert">Counselling is confidential. If you or someone else is in immediate danger, call 112 (Nigeria’s emergency number) or go to the nearest hospital. For under-18s, a parent or guardian’s consent may be needed.</div>
       <form data-kind="Counselling session request">
-        <label>Your name<input name="Name" required autocomplete="name"></label>
-        <label>Phone or email<input name="Contact" required></label>
-        <label>Age group<select name="Age group"><option>Under 13</option><option>13–17</option><option>18–25</option><option>26–40</option><option>41–60</option><option>60+</option></select></label>
-        <label>What would you like to talk about?<select name="Topic"><option>Adolescence or parenting a teen</option><option>Relationships or dating</option><option>Break-up, separation or divorce</option><option>Grief and loss</option><option>Drugs or substance use</option><option>Stress, anxiety or low mood</option><option>Ageing or caring for an older person</option><option>Health or illness</option><option>Relocation or life changes</option><option>Something else</option></select></label>
-        <label>Session type<select name="Session type"><option>Individual</option><option>Couple</option><option>Family</option><option>Group</option></select></label>
-        <label>Preferred mode<select name="Mode"><option>In person</option><option>Phone call</option><option>Video call</option></select></label>
-        <label>Preferred days and times<input name="Preferred time"></label>
+        <div class="form-row form-row-2">
+          <label>Your name<input name="Name" required autocomplete="name"></label>
+          <label>Phone or email<input name="Contact" required></label>
+        </div>
+        <div class="form-row form-row-2">
+          <label>Age group
+            <select name="Age group">
+              <option>Under 13</option>
+              <option>13–17</option>
+              <option>18–25</option>
+              <option>26–40</option>
+              <option>41–60</option>
+              <option>60+</option>
+            </select>
+          </label>
+          <label>Session type
+            <select name="Session type">
+              <option>Individual</option>
+              <option>Couple</option>
+              <option>Family</option>
+              <option>Group</option>
+            </select>
+          </label>
+        </div>
+        <label>What would you like to talk about?
+          <select name="Topic">
+            <option>Adolescence or parenting a teen</option>
+            <option>Relationships or dating</option>
+            <option>Break-up, separation or divorce</option>
+            <option>Grief and loss</option>
+            <option>Drugs or substance use</option>
+            <option>Stress, anxiety or low mood</option>
+            <option>Ageing or caring for an older person</option>
+            <option>Health or illness</option>
+            <option>Relocation or life changes</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <div class="form-row form-row-2">
+          <label>Preferred mode
+            <select name="Mode">
+              <option>In person</option>
+              <option>Phone call</option>
+              <option>Video call</option>
+            </select>
+          </label>
+          <label>Preferred days and times<input name="Preferred time"></label>
+        </div>
         <label>Anything else we should know (optional)<textarea name="Notes" placeholder="Share only what you are comfortable with"></textarea></label>
-        <button class="btn p" type="submit">Prepare my request</button>
+        <button class="btn btn-p" type="submit">Prepare my request</button>
         <div class="out" aria-live="polite"></div>
       </form>
     </div>
   </div>
 </section>
 
-<section id="groups" style="padding-top:0">
+<section id="groups" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="eyebrow">You are not alone</div>
-    <h2>Support groups</h2>
-    <p class="note">Safe, facilitated spaces where people share, learn and heal together.</p>
-    <div class="grid">
-      <div class="card gcard"><h3>Navigating Adolescence</h3><p>For teens and parents: changing bodies, identity, school stress and talking openly at home.</p><a class="gbtn" href="#join" data-group="Navigating Adolescence">Join this group</a></div>
-      <div class="card gcard"><h3>Peer Pressure</h3><p>Build the confidence to say no, choose friends wisely and stay true to yourself.</p><a class="gbtn" href="#join" data-group="Peer Pressure">Join this group</a></div>
-      <div class="card gcard"><h3>Drugs and Substance Use</h3><p>Judgement-free support for people who use, are in recovery, or are worried about someone.</p><a class="gbtn" href="#join" data-group="Drugs and Substance Use">Join this group</a></div>
-      <div class="card gcard"><h3>Young Adulthood</h3><p>Navigating independence, work, money and direction in your late teens to thirties.</p><a class="gbtn" href="#join" data-group="Young Adulthood">Join this group</a></div>
-      <div class="card gcard"><h3>Dating and Relationships</h3><p>Healthy love, boundaries, communication and spotting red flags early.</p><a class="gbtn" href="#join" data-group="Dating and Relationships">Join this group</a></div>
-      <div class="card gcard"><h3>Break-ups</h3><p>Healing, moving on and rebuilding self-worth after a relationship ends.</p><a class="gbtn" href="#join" data-group="Break-ups">Join this group</a></div>
-      <div class="card gcard"><h3>Grief and Loss</h3><p>A caring space to mourn, remember and cope after the loss of a loved one.</p><a class="gbtn" href="#join" data-group="Grief and Loss">Join this group</a></div>
-      <div class="card gcard"><h3>Relocation and Transitions</h3><p>Settling into a new city, country, school or job, and finding a sense of belonging.</p><a class="gbtn" href="#join" data-group="Relocation and Transitions">Join this group</a></div>
-      <div class="card gcard"><h3>Separation and Divorce</h3><p>Support for couples and families through separation, co-parenting and new beginnings.</p><a class="gbtn" href="#join" data-group="Separation and Divorce">Join this group</a></div>
-      <div class="card gcard"><h3>Ageing Well</h3><p>For older adults and their caregivers: loneliness, retirement and caring for ageing parents.</p><a class="gbtn" href="#join" data-group="Ageing Well">Join this group</a></div>
-      <div class="card gcard"><h3>Health and Chronic Illness</h3><p>Living well with illness, and supporting those who care for someone who is unwell.</p><a class="gbtn" href="#join" data-group="Health and Chronic Illness">Join this group</a></div>
+    <div class="section-head">
+      <div class="eyebrow">You are not alone</div>
+      <h2>Support groups</h2>
+      <p>Safe, facilitated spaces where people share, learn and heal together.</p>
     </div>
-    <div class="card" id="join" style="margin-top:20px">
-      <h3>Join a support group</h3>
+    <div class="grid grid-3">
+      <div class="card gcard"><h3>Navigating Adolescence</h3><p>For teens and parents: changing bodies, identity, school stress and talking openly at home.</p><a class="link" href="#join" data-group="Navigating Adolescence">Join this group →</a></div>
+      <div class="card gcard"><h3>Peer Pressure</h3><p>Build the confidence to say no, choose friends wisely and stay true to yourself.</p><a class="link" href="#join" data-group="Peer Pressure">Join this group →</a></div>
+      <div class="card gcard"><h3>Drugs and Substance Use</h3><p>Judgement-free support for people who use, are in recovery, or are worried about someone.</p><a class="link" href="#join" data-group="Drugs and Substance Use">Join this group →</a></div>
+      <div class="card gcard"><h3>Young Adulthood</h3><p>Navigating independence, work, money and direction in your late teens to thirties.</p><a class="link" href="#join" data-group="Young Adulthood">Join this group →</a></div>
+      <div class="card gcard"><h3>Dating and Relationships</h3><p>Healthy love, boundaries, communication and spotting red flags early.</p><a class="link" href="#join" data-group="Dating and Relationships">Join this group →</a></div>
+      <div class="card gcard"><h3>Break-ups</h3><p>Healing, moving on and rebuilding self-worth after a relationship ends.</p><a class="link" href="#join" data-group="Break-ups">Join this group →</a></div>
+      <div class="card gcard"><h3>Grief and Loss</h3><p>A caring space to mourn, remember and cope after the loss of a loved one.</p><a class="link" href="#join" data-group="Grief and Loss">Join this group →</a></div>
+      <div class="card gcard"><h3>Relocation and Transitions</h3><p>Settling into a new city, country, school or job, and finding a sense of belonging.</p><a class="link" href="#join" data-group="Relocation and Transitions">Join this group →</a></div>
+      <div class="card gcard"><h3>Separation and Divorce</h3><p>Support for couples and families through separation, co-parenting and new beginnings.</p><a class="link" href="#join" data-group="Separation and Divorce">Join this group →</a></div>
+      <div class="card gcard"><h3>Ageing Well</h3><p>For older adults and their caregivers: loneliness, retirement and caring for ageing parents.</p><a class="link" href="#join" data-group="Ageing Well">Join this group →</a></div>
+      <div class="card gcard"><h3>Health and Chronic Illness</h3><p>Living well with illness, and supporting those who care for someone who is unwell.</p><a class="link" href="#join" data-group="Health and Chronic Illness">Join this group →</a></div>
+    </div>
+
+    <div class="form-section" id="join" style="margin-top:36px;max-width:560px;margin-left:auto;margin-right:auto">
+      <h2 style="font-size:1.25rem">Join a support group</h2>
+      <p class="form-note">Select a group and leave your contact details. We’ll get back to you.</p>
       <form data-kind="Support group request">
-        <label>Group<select name="Group" id="group-select"><option>Navigating Adolescence</option><option>Peer Pressure</option><option>Drugs and Substance Use</option><option>Young Adulthood</option><option>Dating and Relationships</option><option>Break-ups</option><option>Grief and Loss</option><option>Relocation and Transitions</option><option>Separation and Divorce</option><option>Ageing Well</option><option>Health and Chronic Illness</option></select></label>
-        <label>Your name or a nickname<input name="Name" required></label>
-        <label>Phone or email<input name="Contact" required></label>
-        <label>Preferred mode<select name="Mode"><option>In person</option><option>Online</option><option>Either</option></select></label>
-        <button class="btn p" type="submit">Prepare my request</button>
+        <label>Group
+          <select name="Group" id="group-select">
+            <option>Navigating Adolescence</option>
+            <option>Peer Pressure</option>
+            <option>Drugs and Substance Use</option>
+            <option>Young Adulthood</option>
+            <option>Dating and Relationships</option>
+            <option>Break-ups</option>
+            <option>Grief and Loss</option>
+            <option>Relocation and Transitions</option>
+            <option>Separation and Divorce</option>
+            <option>Ageing Well</option>
+            <option>Health and Chronic Illness</option>
+          </select>
+        </label>
+        <div class="form-row form-row-2">
+          <label>Your name or nickname<input name="Name" required></label>
+          <label>Phone or email<input name="Contact" required></label>
+        </div>
+        <label>Preferred mode
+          <select name="Mode">
+            <option>In person</option>
+            <option>Online</option>
+            <option>Either</option>
+          </select>
+        </label>
+        <button class="btn btn-p" type="submit">Prepare my request</button>
         <div class="out" aria-live="polite"></div>
       </form>
     </div>
   </div>
 </section>
 
-<section id="specialists" style="padding-top:0">
+<section id="specialists">
   <div class="wrap">
-    <div class="eyebrow">Our team</div>
-    <h2>Meet our specialists</h2>
-    <p class="note">The professionals behind our care connection, counselling and support groups.</p>
-    <div class="grid">
+    <div class="section-head">
+      <div class="eyebrow">Our team</div>
+      <h2>Meet our specialists</h2>
+      <p>The professionals behind our care connection, counselling and support groups.</p>
+    </div>
+    <div class="grid grid-3">
       <div class="card spec"><div class="av">👤</div><div><h3>Name to be added</h3><div class="role">Title and specialty</div><p>Qualifications and professional registration</p></div></div>
       <div class="card spec"><div class="av">👤</div><div><h3>Name to be added</h3><div class="role">Title and specialty</div><p>Qualifications and professional registration</p></div></div>
       <div class="card spec"><div class="av">👤</div><div><h3>Name to be added</h3><div class="role">Title and specialty</div><p>Qualifications and professional registration</p></div></div>
@@ -213,46 +457,73 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
   </div>
 </section>
 
-<section id="donate" style="padding-top:0">
+<section id="donate" style="background:var(--brand-light)">
   <div class="wrap">
-    <div class="eyebrow">Give</div>
-    <h2>Donate and support a cause</h2>
-    <p class="note">Your gift reaches real people. We match donors to verified needs and report openly on how every gift is used.</p>
-    <div class="grid">
-      <div class="card"><h3>One-time gift</h3><p>Give any amount towards care, counselling or emergency support.</p></div>
-      <div class="card"><h3>Monthly giving</h3><p>Sustain our groups and counselling with a steady monthly gift.</p></div>
-      <div class="card"><h3>Sponsor a case or give in kind</h3><p>Fund a specific verified need, or donate food, clothing, equipment or your time.</p></div>
+    <div class="section-head">
+      <div class="eyebrow">Give</div>
+      <h2>Donate and support a cause</h2>
+      <p>Your gift reaches real people. We match donors to verified needs and report openly on how every gift is used.</p>
     </div>
-    <div class="alert" style="margin-top:16px">
-      <strong>Bank details for donations</strong><br>
-      Account name: Pillars Medical Centre<br>
-      Bank: First Bank<br>
-      Account number: 2032595552
+    <div class="grid grid-3" style="margin-bottom:28px">
+      <div class="card"><div class="card-icon">💝</div><h3>One-time gift</h3><p>Give any amount towards care, counselling or emergency support.</p></div>
+      <div class="card"><div class="card-icon">📅</div><h3>Monthly giving</h3><p>Sustain our groups and counselling with a steady monthly gift.</p></div>
+      <div class="card"><div class="card-icon">🎁</div><h3>Sponsor a case or give in kind</h3><p>Fund a specific verified need, or donate food, clothing, equipment or your time.</p></div>
     </div>
-    <div class="card">
+
+    <div class="bank-box">
+      <strong>Bank details for donations</strong>
+      <div>Account name: Pillars Medical Centre</div>
+      <div>Bank: First Bank</div>
+      <div>Account number: 2032595552</div>
+    </div>
+
+    <div class="form-section" style="max-width:640px;margin:0 auto">
+      <h2 style="font-size:1.25rem">Make a pledge</h2>
+      <p class="form-note">Fill in your details. After you prepare the pledge, WhatsApp will open so you can send it to us. You can also upload a payment receipt.</p>
       <form data-kind="Donation pledge">
-        <label>Your name<input name="Name" required autocomplete="name"></label>
-        <label>Phone or email<input name="Contact" required></label>
-        <label>How would you like to give?<select name="Giving type"><option>One-time gift</option><option>Monthly gift</option><option>Sponsor a specific case</option><option>In-kind donation</option><option>Volunteer my time or skills</option></select></label>
-        <label>Amount or item<input name="Amount or item"></label>
-        <label>Recognition<select name="Recognition"><option>Publicly thank me</option><option>Keep me anonymous</option></select></label>
+        <div class="form-row form-row-2">
+          <label>Your name<input name="Name" required autocomplete="name"></label>
+          <label>Phone or email<input name="Contact" required></label>
+        </div>
+        <div class="form-row form-row-2">
+          <label>How would you like to give?
+            <select name="Giving type">
+              <option>One-time gift</option>
+              <option>Monthly gift</option>
+              <option>Sponsor a specific case</option>
+              <option>In-kind donation</option>
+              <option>Volunteer my time or skills</option>
+            </select>
+          </label>
+          <label>Amount or item<input name="Amount or item"></label>
+        </div>
+        <label>Recognition
+          <select name="Recognition">
+            <option>Publicly thank me</option>
+            <option>Keep me anonymous</option>
+          </select>
+        </label>
         <label>Message (optional)<textarea name="Message"></textarea></label>
         <label>Evidence of payment / receipt (optional)
           <input type="file" name="Receipt" accept="image/*,.pdf" id="donation-receipt">
         </label>
-        <p class="note" style="margin-top:-6px">You can upload a photo or PDF of your transfer receipt. After preparing your pledge, attach the file when you send it on WhatsApp.</p>
-        <button class="btn p" type="submit">Prepare my pledge</button>
+        <p class="note">You can upload a photo or PDF of your transfer receipt. After preparing your pledge, attach the file when you send it on WhatsApp.</p>
+        <button class="btn btn-p" type="submit">Prepare my pledge</button>
         <div class="out" aria-live="polite"></div>
       </form>
     </div>
   </div>
 </section>
 
-<section id="contact" style="padding-top:0">
+<section id="contact">
   <div class="wrap">
-    <div class="cta">
+    <div class="cta-band">
       <h2>Need help, or want to help?</h2>
-      <p>Tell us your need, make a donation or join as a volunteer or counsellor. Bank account details are listed under Donate. Phone and email will be added soon.</p>
+      <p>Tell us your need, make a donation or join as a volunteer or counsellor. Bank details are under Donate. WhatsApp numbers are in the top bar.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+        <a class="btn btn-accent" href="#request">Request support</a>
+        <a class="btn" style="background:#fff;color:var(--brand)" href="https://wa.me/2348084427587" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -260,51 +531,67 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
 <footer>
   <div class="wrap">
     <img class="logo-sm" src="logo.jpeg" alt="CARINGLY">
-    <div>© 2026 CARINGLY. Navigating Care, Together.</div>
+    <div class="copy">© 2026 CARINGLY. Navigating Care, Together.</div>
   </div>
 </footer>
+
 <script>
 (function(){
-var EMAIL=""; // add the agency email if needed
-// WhatsApp numbers (digits only, with country code)
-var WHATSAPP_DEFAULT="2348084427587";          // Request support / general
-var WHATSAPP_COUNSELLING="2347017871834";      // Book counselling
-document.querySelectorAll("[data-group]").forEach(function(a){a.addEventListener("click",function(){var s=document.getElementById("group-select");if(s)s.value=a.getAttribute("data-group")})});
+var EMAIL="";
+var WHATSAPP_DEFAULT="2348084427587";
+var WHATSAPP_COUNSELLING="2347017871834";
+
+document.querySelectorAll("[data-group]").forEach(function(a){
+  a.addEventListener("click",function(){
+    var s=document.getElementById("group-select");
+    if(s)s.value=a.getAttribute("data-group");
+  });
+});
+
 document.querySelectorAll("form[data-kind]").forEach(function(f){
- f.addEventListener("submit",function(e){
-  e.preventDefault();
-  var kind=f.getAttribute("data-kind"),lines=["CARINGLY: "+kind];
-  var hasReceipt=false,receiptName="";
-  new FormData(f).forEach(function(v,k){
-    if(v instanceof File){
-      if(v.name){hasReceipt=true;receiptName=v.name;lines.push(k+": "+v.name+" (please attach this file when sending)")}
-    }else{
-      v=String(v).trim();if(v)lines.push(k+": "+v);
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var kind=f.getAttribute("data-kind"),lines=["CARINGLY: "+kind];
+    var hasReceipt=false,receiptName="";
+    new FormData(f).forEach(function(v,k){
+      if(v instanceof File){
+        if(v.name){hasReceipt=true;receiptName=v.name;lines.push(k+": "+v.name+" (please attach this file when sending)")}
+      }else{
+        v=String(v).trim();if(v)lines.push(k+": "+v);
+      }
+    });
+    var msg=lines.join("\n"),out=f.querySelector(".out");
+    out.style.display="block";out.textContent="";
+    var h=document.createElement("div");h.textContent=msg;out.appendChild(h);
+    if(hasReceipt){
+      var tip=document.createElement("p");tip.className="note";tip.style.margin="10px 0 0";
+      tip.textContent="Reminder: After opening WhatsApp, attach the file \""+receiptName+"\" to your message.";
+      out.appendChild(tip);
+    }
+    var row=document.createElement("div");row.className="btns";
+    function add(label,href,fn){
+      var el=document.createElement(href?"a":"button");
+      el.className="btn btn-s btn-sm";
+      el.textContent=label;
+      if(href){el.href=href;el.target="_blank";el.rel="noopener"}
+      else{el.type="button";el.onclick=fn}
+      row.appendChild(el);
+    }
+    if(EMAIL)add("Send by email","mailto:"+EMAIL+"?subject="+encodeURIComponent("CARINGLY: "+kind)+"&body="+encodeURIComponent(msg));
+    var wa = (kind === "Counselling session request") ? WHATSAPP_COUNSELLING : WHATSAPP_DEFAULT;
+    var waUrl = wa ? "https://wa.me/"+wa+"?text="+encodeURIComponent(msg) : null;
+    if(waUrl)add("Send on WhatsApp",waUrl);
+    add("Copy message",null,function(){var b=this;try{navigator.clipboard.writeText(msg).then(function(){b.textContent="Copied"})}catch(x){}});
+    out.appendChild(row);
+    if(!EMAIL&&!wa){
+      var n=document.createElement("p");n.className="note";n.style.margin="10px 0 0";
+      n.textContent="Our contact details will be added soon. Please copy this message and send it to us once they appear.";
+      out.appendChild(n);
+    }
+    if(kind === "Donation pledge" && waUrl){
+      window.open(waUrl, "_blank");
     }
   });
-  var msg=lines.join("\n"),out=f.querySelector(".out");
-  out.style.display="block";out.textContent="";
-  var h=document.createElement("div");h.textContent=msg;out.appendChild(h);
-  if(hasReceipt){
-    var tip=document.createElement("p");tip.className="note";tip.style.margin="10px 0 0";
-    tip.textContent="Reminder: After opening WhatsApp, attach the file \""+receiptName+"\" to your message.";
-    out.appendChild(tip);
-  }
-  var row=document.createElement("div");row.className="btns";
-  function add(label,href,fn){var el=document.createElement(href?"a":"button");el.className="btn s";el.textContent=label;if(href){el.href=href;el.target="_blank";el.rel="noopener"}else{el.type="button";el.onclick=fn}row.appendChild(el)}
-  if(EMAIL)add("Send by email","mailto:"+EMAIL+"?subject="+encodeURIComponent("CARINGLY: "+kind)+"&body="+encodeURIComponent(msg));
-  // Choose WhatsApp number based on form type
-  var wa = (kind === "Counselling session request") ? WHATSAPP_COUNSELLING : WHATSAPP_DEFAULT;
-  var waUrl = wa ? "https://wa.me/"+wa+"?text="+encodeURIComponent(msg) : null;
-  if(waUrl)add("Send on WhatsApp",waUrl);
-  add("Copy message",null,function(){var b=this;try{navigator.clipboard.writeText(msg).then(function(){b.textContent="Copied"})}catch(x){}});
-  out.appendChild(row);
-  if(!EMAIL&&!wa){var n=document.createElement("p");n.className="note";n.style.margin="10px 0 0";n.textContent="Our contact details will be added soon. Please copy this message and send it to us once they appear.";out.appendChild(n)}
-  // For donation pledges, automatically open WhatsApp with the message
-  if(kind === "Donation pledge" && waUrl){
-    window.open(waUrl, "_blank");
-  }
- });
 });
 })();
 </script>
