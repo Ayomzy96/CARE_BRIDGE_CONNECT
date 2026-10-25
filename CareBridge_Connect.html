@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CareBridge Connect</title>
+<title>CARINGLY – Navigating Care, Together</title>
 <style>
 :root{--bg:#fbf8f3;--surface:#ffffff;--ink:#1d2b2a;--muted:#566866;--brand:#0f6b66;--brand-ink:#ffffff;--accent:#e8a33d;--line:#e6dfd3;--soft:#eaf4f2;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1918;--surface:#152624;--ink:#eef4f2;--muted:#a3b8b4;--brand:#4fc3b9;--brand-ink:#08201e;--accent:#f0b552;--line:#25403c;--soft:#12302d;color-scheme:dark}}
@@ -16,6 +16,8 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 
 section{padding:44px 0}
 .hero{background:var(--soft);padding:56px 0 48px;border-bottom:1px solid var(--line)}
 .brand{font-weight:700;color:var(--brand);letter-spacing:.02em;margin-bottom:18px}
+.logo{display:block;max-width:280px;width:100%;height:auto;margin-bottom:20px}
+.logo-sm{display:block;max-width:160px;width:100%;height:auto;margin:0 auto 12px}
 .hero h1{font-size:clamp(1.9rem,6vw,3rem)}
 .hero p{font-size:1.1rem;color:var(--muted);max-width:620px}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
@@ -33,7 +35,7 @@ ol.obj li{margin-bottom:10px}
 .cta{background:var(--brand);color:var(--brand-ink);border-radius:18px;padding:28px 22px}
 .cta h2{margin-bottom:.3em}
 .cta a{color:inherit}
-footer{padding:24px 0 32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer{padding:24px 0 32px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);text-align:center}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;border-bottom:1px solid var(--line);scrollbar-width:none}
 .chips a{white-space:nowrap;padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:.9rem;background:var(--surface)}
 .gcard{display:flex;flex-direction:column;gap:10px}
@@ -58,9 +60,9 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
 <body>
 <header class="hero">
   <div class="wrap">
-    <div class="brand">CareBridge Connect</div>
+    <img class="logo" src="logo.jpeg" alt="CARINGLY – Navigating Care, Together">
     <h1>No one should face hardship alone.</h1>
-    <p>We connect people in need with compassionate care, professional counselling and trusted donors.</p>
+    <p>We connect people in need with compassionate care, professional counselling, legal support, mediation and trusted donors.</p>
     <div class="btns">
       <a class="btn p" href="#request">Request support</a>
       <a class="btn s" href="#counselling">Book counselling</a>
@@ -80,7 +82,7 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
     <div class="two">
       <div class="card">
         <h3>Our mission</h3>
-        <p>To connect individuals, families and communities in need with compassionate care, professional counselling and verified donors, through ethical, evidence-based social work practice.</p>
+        <p>To connect individuals, families and communities in need with compassionate care, professional counselling, legal support, mediation and verified donors, through ethical, evidence-based social work practice.</p>
       </div>
       <div class="card">
         <h3>Our vision</h3>
@@ -93,11 +95,13 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
 <section id="services" style="padding-top:0">
   <div class="wrap">
     <div class="eyebrow">What we do</div>
-    <h2>Three ways we help</h2>
+    <h2>Ways we help</h2>
     <div class="grid">
       <div class="card"><h3>Care connection</h3><p>We assess needs and link older persons, children, families and people living with illness or disability to trusted caregivers and services.</p></div>
       <div class="card"><h3>Counselling</h3><p>Confidential individual, family, group and crisis counselling from trained social workers.</p></div>
       <div class="card"><h3>Donor matching</h3><p>We connect donors, philanthropists and organisations to verified needs, and report openly on how gifts are used.</p></div>
+      <div class="card"><h3>Legal support</h3><p>Guidance and referral on legal matters relating to care, family welfare, rights of vulnerable persons, and access to justice.</p></div>
+      <div class="card"><h3>Mediating services</h3><p>Facilitated mediation to resolve family, community and care-related conflicts peacefully and fairly.</p></div>
     </div>
   </div>
 </section>
@@ -110,6 +114,8 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
       <ol class="obj">
         <li>Identify and assess vulnerable persons and link them to suitable care providers and services.</li>
         <li>Provide accessible, confidential and professional counselling for individuals, families and groups.</li>
+        <li>Offer legal support and guidance on care, family welfare and the rights of vulnerable persons.</li>
+        <li>Provide mediating services to resolve family, community and care-related conflicts peacefully.</li>
         <li>Mobilise and match donors, volunteers and partners to verified needs.</li>
         <li>Ensure transparency and accountability in all donations and referrals.</li>
         <li>Build partnerships with hospitals, faith bodies, schools, government and community groups.</li>
@@ -130,7 +136,7 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
         <label>Your name<input name="Name" required autocomplete="name"></label>
         <label>Phone or email<input name="Contact" required></label>
         <label>Who needs care?<select name="For"><option>Myself</option><option>A family member</option><option>A friend or neighbour</option><option>Someone in my community</option></select></label>
-        <label>Type of need<select name="Type of need"><option>Elderly care</option><option>Child or family welfare</option><option>Health or medical support</option><option>Disability support</option><option>Food, shelter or basic needs</option><option>Other</option></select></label>
+        <label>Type of need<select name="Type of need"><option>Elderly care</option><option>Child or family welfare</option><option>Health or medical support</option><option>Disability support</option><option>Food, shelter or basic needs</option><option>Legal support</option><option>Mediating services</option><option>Other</option></select></label>
         <label>Location (town and state)<input name="Location"></label>
         <label>Tell us more<textarea name="Details"></textarea></label>
         <button class="btn p" type="submit">Prepare my request</button>
@@ -231,6 +237,10 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
         <label>Amount or item<input name="Amount or item"></label>
         <label>Recognition<select name="Recognition"><option>Publicly thank me</option><option>Keep me anonymous</option></select></label>
         <label>Message (optional)<textarea name="Message"></textarea></label>
+        <label>Evidence of payment / receipt (optional)
+          <input type="file" name="Receipt" accept="image/*,.pdf" id="donation-receipt">
+        </label>
+        <p class="note" style="margin-top:-6px">You can upload a photo or PDF of your transfer receipt. After preparing your pledge, attach the file when you send it on WhatsApp.</p>
         <button class="btn p" type="submit">Prepare my pledge</button>
         <div class="out" aria-live="polite"></div>
       </form>
@@ -248,7 +258,10 @@ button.btn{cursor:pointer;font:inherit;font-weight:600}
 </section>
 
 <footer>
-  <div class="wrap">© 2026 CareBridge Connect. Care, counselling and connection.</div>
+  <div class="wrap">
+    <img class="logo-sm" src="logo.jpeg" alt="CARINGLY">
+    <div>© 2026 CARINGLY. Navigating Care, Together.</div>
+  </div>
 </footer>
 <script>
 (function(){
@@ -260,20 +273,37 @@ document.querySelectorAll("[data-group]").forEach(function(a){a.addEventListener
 document.querySelectorAll("form[data-kind]").forEach(function(f){
  f.addEventListener("submit",function(e){
   e.preventDefault();
-  var kind=f.getAttribute("data-kind"),lines=["CareBridge Connect: "+kind];
-  new FormData(f).forEach(function(v,k){v=String(v).trim();if(v)lines.push(k+": "+v)});
+  var kind=f.getAttribute("data-kind"),lines=["CARINGLY: "+kind];
+  var hasReceipt=false,receiptName="";
+  new FormData(f).forEach(function(v,k){
+    if(v instanceof File){
+      if(v.name){hasReceipt=true;receiptName=v.name;lines.push(k+": "+v.name+" (please attach this file when sending)")}
+    }else{
+      v=String(v).trim();if(v)lines.push(k+": "+v);
+    }
+  });
   var msg=lines.join("\n"),out=f.querySelector(".out");
   out.style.display="block";out.textContent="";
   var h=document.createElement("div");h.textContent=msg;out.appendChild(h);
+  if(hasReceipt){
+    var tip=document.createElement("p");tip.className="note";tip.style.margin="10px 0 0";
+    tip.textContent="Reminder: After opening WhatsApp, attach the file \""+receiptName+"\" to your message.";
+    out.appendChild(tip);
+  }
   var row=document.createElement("div");row.className="btns";
   function add(label,href,fn){var el=document.createElement(href?"a":"button");el.className="btn s";el.textContent=label;if(href){el.href=href;el.target="_blank";el.rel="noopener"}else{el.type="button";el.onclick=fn}row.appendChild(el)}
-  if(EMAIL)add("Send by email","mailto:"+EMAIL+"?subject="+encodeURIComponent("CareBridge Connect: "+kind)+"&body="+encodeURIComponent(msg));
+  if(EMAIL)add("Send by email","mailto:"+EMAIL+"?subject="+encodeURIComponent("CARINGLY: "+kind)+"&body="+encodeURIComponent(msg));
   // Choose WhatsApp number based on form type
   var wa = (kind === "Counselling session request") ? WHATSAPP_COUNSELLING : WHATSAPP_DEFAULT;
-  if(wa)add("Send on WhatsApp","https://wa.me/"+wa+"?text="+encodeURIComponent(msg));
+  var waUrl = wa ? "https://wa.me/"+wa+"?text="+encodeURIComponent(msg) : null;
+  if(waUrl)add("Send on WhatsApp",waUrl);
   add("Copy message",null,function(){var b=this;try{navigator.clipboard.writeText(msg).then(function(){b.textContent="Copied"})}catch(x){}});
   out.appendChild(row);
   if(!EMAIL&&!wa){var n=document.createElement("p");n.className="note";n.style.margin="10px 0 0";n.textContent="Our contact details will be added soon. Please copy this message and send it to us once they appear.";out.appendChild(n)}
+  // For donation pledges, automatically open WhatsApp with the message
+  if(kind === "Donation pledge" && waUrl){
+    window.open(waUrl, "_blank");
+  }
  });
 });
 })();
