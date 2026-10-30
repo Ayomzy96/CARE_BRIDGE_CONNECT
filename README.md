@@ -1,8 +1,8 @@
 Added donation receipt upload.
 
-## Adding past work
+## Adding to Footprints/portfolio
 
-The “Our past work” gallery is in `index.html` under `<section id="impact">`. To add an outreach, surgery or other completed work:
+The “Footprints/portfolio” gallery is in `index.html` under `<section id="impact">`. To add an outreach, surgery or other completed work:
 
 1. Copy the event photo into the `images` folder.
 2. Duplicate an existing `<article class="card impact-card">` in the gallery.
