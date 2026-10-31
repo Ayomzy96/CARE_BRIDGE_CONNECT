@@ -125,6 +125,9 @@ textarea{min-height:90px;resize:vertical}
 .impact-card{overflow:hidden;padding:0}
 .impact-card img{width:100%;height:260px;object-fit:cover;background:var(--brand-light)}
 .impact-card .impact-image-top{object-position:center top}
+.impact-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line)}
+.impact-photos img{width:100%;height:320px;object-fit:contain;background:var(--brand-light)}
+@media(max-width:500px){.impact-photos{grid-template-columns:1fr}.impact-photos img{height:300px}}
 .impact-content{padding:22px}
 .impact-tag{display:inline-block;background:var(--brand-light);color:var(--brand);font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:10px}
 .impact-content h3{margin-bottom:8px}
@@ -163,6 +166,8 @@ footer a{color:#c5ddd9}
       <a href="https://wa.me/2348084427587" target="_blank" rel="noopener">WhatsApp: 0808 442 7587</a>
       &nbsp;·&nbsp;
       <a href="https://wa.me/2348065164616" target="_blank" rel="noopener">Counselling: 0806 516 4616</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:caringly11@gmail.com">caringly11@gmail.com</a>
     </span>
   </div>
 </div>
@@ -353,8 +358,8 @@ footer a{color:#c5ddd9}
         <img src="images/medical-outreach-pillarts.jpeg" alt="Photos from the medical outreach and the Pillarts Medical team" loading="lazy">
         <div class="impact-content">
           <span class="impact-tag">Medical outreach</span>
-          <h3>Medical outreach at Pillarts Medical</h3>
-          <p class="impact-meta"><strong>Date:</strong> 21 January 2017<br><strong>Location:</strong> Pillarts Medical</p>
+          <h3>Medical outreach at Pillars Medical</h3>
+          <p class="impact-meta"><strong>Date:</strong> 21 January 2017<br><strong>Location:</strong> Pillars Medical</p>
           <p>Community members came together with the medical team for a day of outreach and care.</p>
         </div>
       </article>
@@ -362,8 +367,19 @@ footer a{color:#c5ddd9}
         <img class="impact-image-top" src="images/surgical-outreach-abeokuta.jpeg" alt="The medical team at the Abeokuta surgical outreach" loading="lazy">
         <div class="impact-content">
           <span class="impact-tag">Surgical outreach</span>
-          <h3>Free surgical outreach for Abeokuta Correctional Centre inmates</h3>
+          <h3>Free Surgical Outreach For Abeokuta Correctional Centre Inmates</h3>
           <p class="impact-meta"><strong>Date:</strong> 24 June 2022<br><strong>Location:</strong> General Hospital Abeokuta</p>
+        </div>
+      </article>
+      <article class="card impact-card" style="grid-column:1/-1">
+        <div class="impact-photos">
+          <img src="images/giving back.jpeg" alt="Community members receiving support during CARINGLY's end-of-year giving-back outreach" loading="lazy">
+          <img src="images/med checkup.jpeg" alt="Community members receiving medical check-ups during the outreach" loading="lazy">
+        </div>
+        <div class="impact-content">
+          <span class="impact-tag">Community outreach</span>
+          <h3>End-of-year giving back to the community</h3>
+          <p class="impact-meta"><strong>Date:</strong> 23 December 2025</p>
         </div>
       </article>
     </div>
@@ -599,6 +615,7 @@ footer a{color:#c5ddd9}
       <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
         <a class="btn btn-accent" href="#request">Request support</a>
         <a class="btn" style="background:#fff;color:var(--brand)" href="https://wa.me/2348084427587" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn" style="background:#fff;color:var(--brand)" href="mailto:caringly11@gmail.com">Email CARINGLY</a>
       </div>
     </div>
   </div>
@@ -613,7 +630,7 @@ footer a{color:#c5ddd9}
 
 <script>
 (function(){
-var EMAIL="";
+var EMAIL="caringly11@gmail.com";
 var WHATSAPP_DEFAULT="2348084427587";
 var WHATSAPP_COUNSELLING="2348065164616";
 
